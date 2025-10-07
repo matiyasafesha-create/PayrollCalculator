@@ -2,7 +2,7 @@ package com.pluralsight;
 
 public class Employee {
 
-    private int Id = 0;
+    private int Id;
     private String name;
     private double hoursworked;
     private double payrate;
@@ -43,6 +43,10 @@ public class Employee {
     public int getId() {
         return Id;
 
+    }
+
+    public void setId(int id) {
+        Id = id;
     }
 
     public  double getgrosspay(){
