@@ -7,23 +7,32 @@ public class PayrollCalculator1 {
     public static void main(String[] args) {
 
 
+      //  System.out.println("Enter the name of the file employee file to process ?");
+       // String.
+
+
 
         try{
 
             Scanner scanner = new Scanner(System.in);
+            System.out.println("Enter the name of the file employee file to process:? ");
+            String employeefile = scanner.nextLine();
+            System.out.println("Enter the name of the payroll file to create:? ");
+            String payrollemployee = scanner.nextLine();
 
 
 
 
-        FileReader fileReader1 = new FileReader("src/main/resources/DataFiles/employees.csv");
+
+        FileReader fileReader1 = new FileReader("src/main/resources/DataFiles/" +employeefile );
         BufferedReader bufReader = new BufferedReader(fileReader1);
 
-        FileWriter fileWriter = new FileWriter("src/main/resources/DataFiles/newemployeesreporttest1.csv");
+        FileWriter fileWriter = new FileWriter("src/main/resources/DataFiles/"+ payrollemployee);
         BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
 
-
-
-        bufReader.readLine(); // reades and ignore the line from the data we are storing
+        bufferedWriter.write("EmployeeID , Name ,Gross Pay ");
+        bufReader.readLine();    // reades and ignore the line from the data we are storing
+            bufferedWriter.newLine();
 
         String input;
 
@@ -51,25 +60,6 @@ public class PayrollCalculator1 {
                 count++;
 
 
-
-                System.out.println("Enter the name of the file employee file to process:?");
-                String fileemployeename = scanner.nextLine();
-                bufReader.read();
-
-
-                System.out.println("Enter the name of the payroll file to create:?");
-                String filepayrollname = scanner.nextLine();
-
-
-
-
-
-
-
-
-
-
-
                 for (int i = 1 ; i < count; i ++){
                     bufferedWriter.write(employeeList[i].getId() + "," +
                             employeeList[i].getName() + "," +
@@ -78,10 +68,6 @@ public class PayrollCalculator1 {
 
 
                 }
-
-
-
-
 
 
             }
